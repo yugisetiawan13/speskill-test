@@ -49,7 +49,6 @@ export default {
   data() {
     return {
       cars: [],
-      total: [],
     };
   },
   async fetch() {
@@ -64,6 +63,14 @@ export default {
       .then((res) => res);
 
     console.log(this.cars);
+  },
+  computed: {
+    countTotal() {
+      const subtotal = this.cars.product.price * this.cars.quantity;
+      let total = subtotal * this.cars.length;
+
+      return total;
+    },
   },
 };
 </script>
